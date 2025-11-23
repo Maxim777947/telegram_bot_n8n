@@ -1,0 +1,9 @@
+from typing import Optional, Protocol
+
+from app.domain.models.user import UserEntity
+
+
+class UserRepository(Protocol):
+    def upsert(self, user: UserEntity) -> UserEntity: ...
+    def get_by_id(self, user_id: int) -> Optional[UserEntity]: ...
+    def get_by_tg_id(self, tg_id: int) -> Optional[UserEntity]: ...
